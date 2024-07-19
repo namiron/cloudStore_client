@@ -1,0 +1,70 @@
+@import '../../common/variables.scss';
+
+//-------------------------------------
+
+//-------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//-------------------------------------vars
+
+
+
+//----------------------------------------------
+
+.disk {
+    @include adaptive-value('padding-top', 50, 20, 1920);
+    @include adaptive-value('padding-bottom', 50, 20, 1920);
+
+}
+
+.diskContainer {
+    color: $color;
+    @extend %container;
+}
+
+.buttonsDisk {
+
+    @extend %displayFlexDirection;
+    @include adaptive-value('gap', 20, 10, 1920);
+    @include adaptive-value('padding-bottom', 30, 15, 1920);
+
+}
+
+.diskBack {
+    width: fit-content;
+    @include adaptive-value('padding', 10, 5, 1920);
+    outline: 1px solid $color;
+    border-radius: 40px;
+}
+
+.createDir {
+    width: fit-content;
+    @include adaptive-value('padding', 10, 5, 1920);
+    @include adaptive-font(18, 14, 1920);
+    outline: 1px solid $color;
+    border-radius: 40px;
+    color: $color;
+}
+
+.diskFiles {}
+
+.nameList {
+    @extend %displayComplect;
+    @include adaptive-value('padding-bottom', 10, 5, 1920);
+    @include adaptive-value('padding-left', 100, 50, 1920);
+    @include adaptive-value('padding-right', 100, 0, 1920);
+
+
+    border-bottom: 1px solid $color;
+    @include adaptive-value('margin-bottom', 10, 5, 1920);
+
+}
+
+.itemName {
+    &:first-child {
+        flex: 1 1 auto;
+    }
+
+    @include adaptive-value('padding-right', 50, 25, 1920);
+
+}

@@ -1,0 +1,48 @@
+@import '../../common/variables.scss';
+//-----------------------------------------------------------------
+
+//-------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//-------------------------------------vars
+
+
+//-----------------------------------------------------------------
+.navbar {
+    background: #fff;
+    @include adaptive-value('padding-top', 15, 5, 1440);
+    @include adaptive-value('padding-bottom', 15, 5, 1440);
+
+}
+
+.container {
+    @extend %container;
+    @extend %displayComplect;
+}
+
+//-----------------------------------------------------------------
+
+
+
+.logoBox {
+    @extend %display;
+    @include adaptive-value('gap', 15, 5, 1440);
+}
+
+.logo {
+    max-width: 50px;
+    @extend %images
+}
+
+
+
+.list {
+    @extend %display;
+    @include adaptive-value('gap', 15, 5, 1440);
+}
+
+.item {
+    @include adaptive-font(20, 16, 1440);
+    color: $color;
+    cursor: pointer;
+}

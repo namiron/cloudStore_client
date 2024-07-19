@@ -1,0 +1,39 @@
+@import '../../common/variables.scss';
+//---------------------------------------
+
+.fileWrapper {
+    @include adaptive-value('padding-left', 50, 0, 1440);
+    @include adaptive-value('padding-right', 110, 0, 1440);
+    @include adaptive-value('padding-bottom', 10, 5, 1440);
+    @extend %display;
+    border-bottom: 1px solid #000;
+
+    transition: scale 0.03s ease 0ms;
+
+    &:hover {
+        transition: scale 0.03s ease 0ms;
+        transform: scale(1.02);
+
+    }
+}
+
+
+
+
+.fileImage {
+    cursor: pointer;
+    max-width: 50px;
+    @extend %images;
+
+}
+
+.name {
+    @include adaptive-value('padding-left', 20, 0, 1440);
+    flex: 1 1 auto;
+}
+
+.date {
+    @include adaptive-value('padding-right', 20, 0, 1440);
+}
+
+.size {}

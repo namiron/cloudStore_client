@@ -1,0 +1,21 @@
+@import './../common/variables.scss';
+
+//----------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//----------------------------------------vars
+
+.inputStyles {
+    border-bottom: 2px solid $color;
+    @include adaptive-value('width', 400, 250, 1920);
+    @include adaptive-value('padding-top', 15, 5, 1440);
+    @include adaptive-value('padding-bottom', 10, 5, 1440);
+
+
+}
+
+::placeholder {
+    @include adaptive-font(18, 14, 1440);
+    color: $color;
+    @include adaptive-font(18, 14, 1440);
+}

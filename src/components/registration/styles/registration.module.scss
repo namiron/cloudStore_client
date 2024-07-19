@@ -1,0 +1,43 @@
+@import './../../common/variables.scss';
+//-------------------------------------------
+
+//----------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//----------------------------------------vars
+
+.registration {
+    height: 100vh;
+    @extend %displayCenter;
+
+}
+
+.formBody {
+    max-width: 600px;
+    border-radius: 27px;
+    outline: 2px solid $color;
+    @include adaptive-value('padding', 30, 15, 1440);
+    background: #fff;
+}
+
+.registrationHeading {
+    color: $color;
+    @include adaptive-font(25, 18, 1440);
+    text-align: center;
+}
+
+.registrationTitle {}
+
+.InputList {
+    @extend %displayFlexDirection;
+}
+
+.registrationBtn {
+    max-width: 100px;
+    align-self: flex-end;
+    @include adaptive-value('margin-top', 10, 5, 1440);
+    @include adaptive-value('padding', 5, 2, 1440);
+    background: $color;
+    color: #fff;
+    border-radius: 10px;
+}

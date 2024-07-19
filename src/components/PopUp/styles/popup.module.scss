@@ -1,0 +1,62 @@
+@import '../../common/variables.scss';
+
+//-------------------------------------
+
+//-------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//-------------------------------------vars
+
+
+
+
+//--------------------------------------------
+
+.popup {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @extend %displayCenter;
+}
+
+.popupContent {
+    background: $background;
+    @include adaptive-value('width', 500, 250, 1920);
+    @include adaptive-value('padding', 20, 10, 1920);
+    @extend %displayFlexDirection;
+    border-radius: 30px;
+}
+
+.popupHeader {
+    @extend %displayComplect;
+}
+
+.popupTitle {}
+
+.closePopup {
+    width: fit-content;
+    @include adaptive-value('margin-right', 10, 0, 1920);
+}
+
+input {
+    padding: 5px;
+
+    @include adaptive-value('margin-top', 20, 0, 1920);
+    @include adaptive-value('margin-bottom', 20, 0, 1920);
+
+}
+
+.createDir {
+    width: fit-content;
+    @include adaptive-value('margin-right', 10, 0, 1920);
+    @include adaptive-value('padding', 8, 4, 1920);
+    background: $color;
+    border-radius: 10px;
+    align-self: flex-end;
+    color: #fff;
+}

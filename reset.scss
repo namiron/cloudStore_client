@@ -1,0 +1,178 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*::before,
+*::after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	color: gold;
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	line-height: 1;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+#root {
+	height: 100%;
+}
+
+input,
+button,
+textarea {
+	width: 100%;
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	background: transparent;
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+	list-style: none;
+	color: #566885;
+}
+
+a:visited,
+a:hover {
+	text-decoration: none;
+	list-style: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+input[tupe=text],
+input[tupe=email],
+input[tupe=tel] {
+	-webkit-appearence: none;
+	-moz-appearence: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+textarea {
+	-webkit-appearence: none;
+	-moz-appearence: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.input {
+	border-radius: 0 !important;
+	display: block;
+	padding: 0 20px;
+}
+
+textarea.input {
+	resize: none;
+	padding: 0 0;
+}
+
+body {}
+
+body._lock {
+	overflow: hidden;
+}
+
+body._pc .menu__link:hover .menu__sub-list {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+	pointer-events: all;
+}
+
+body._touch .menu__link._active .menu__sub-list {
+	-webkit-transform: translate(0px, 10px);
+	transform: translate(0px, 10px);
+	display: block;
+}
+
+._icon-arrow {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-ordinal-group: 2;
+	-ms-flex-order: 1;
+	order: 1;
+}
+
+body {
+	font-family: "Nunito";
+}
+
+body[data-theme='dark'] {
+	background: rgb(48, 46, 46);
+	color: #ffff;
+	cursor: pointer;
+
+	a {
+		color: #fff;
+	}
+}
+
+body[data-theme='light'] {
+	background: #fff;
+	color: #000;
+	cursor: pointer;
+
+	a {
+		color: #000
+	}
+}
