@@ -41,4 +41,5 @@ export interface IInitialState {
     currentDir: any,
     uploadFiles: IUploadFile[],
     uploaderVisible: boolean,
+    diskStack: string[]
 }

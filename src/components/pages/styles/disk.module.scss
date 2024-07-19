@@ -68,3 +68,19 @@ $color: #566885;
     @include adaptive-value('padding-right', 50, 25, 1920);
 
 }
+.upload {}
+
+.uploadLabel {
+    cursor: pointer;
+}
+
+.uploadInput {
+    display: none;
+    margin: 0;
+}
+
+.uploadIcons {
+
+    color: $color;
+    font-size: 30px;
+}

@@ -8,9 +8,6 @@ $color: #566885;
 .inputStyles {
     border-bottom: 2px solid $color;
     @include adaptive-value('width', 400, 250, 1920);
-    @include adaptive-value('padding-top', 15, 5, 1440);
-    @include adaptive-value('padding-bottom', 10, 5, 1440);
-
 
 }
 
