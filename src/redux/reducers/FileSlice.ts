@@ -1,22 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { filesApi } from '../API/filesApi';
 import { IInitialState, IFilesType, IUploadFile } from '../types/IFilesTypes';
-import { uploadFile } from '../API/filesUpload';
+
 
 
 const initialState: IInitialState = {
     files: [],
     currentDir: null,
-    uploadFiles: [], // Добавляем поле для отслеживания загрузок
-    uploaderVisible: false // Добавляем поле для управления видимостью загрузчика
+    uploadFiles: [],
+    uploaderVisible: false,
+    diskStack: []
+
 };
 
 const fileSlice = createSlice({
     name: 'file',
     initialState,
     reducers: {
-        setCurrentDir(state, { payload }: PayloadAction<any>) {
+        setCurrentDir(state, { payload }) {
             state.currentDir = payload;
+        },
+        addDiskStack(state, { payload }) {
+            state.diskStack = [...state.diskStack, payload]
         },
         showUploader(state) {
             state.uploaderVisible = true;
@@ -30,18 +35,20 @@ const fileSlice = createSlice({
                 state.uploadFiles[index] = payload;
             }
         },
-        addFile(state, { payload }) {
-            state.files = payload;
-        }
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(uploadFile.fulfilled, (state, { payload }) => {
+        addFile(state, { payload }: PayloadAction<IFilesType>) {
+            // Ensure that files state is updated
+            const existingFileIndex = state.files.findIndex(file => file._id === payload._id);
+            if (existingFileIndex === -1) {
                 return {
                     ...state,
                     files: [...state.files, payload]
                 }
-            })
+            }
+        }
+    },
+    extraReducers: (builder) => {
+        builder
+
             .addMatcher(
                 filesApi.endpoints.getFilesList.matchFulfilled,
                 (state, { payload }: PayloadAction<IFilesType[]>) => {
@@ -60,6 +67,6 @@ const fileSlice = createSlice({
     }
 });
 
-export const { setCurrentDir, showUploader, addUploadFile, changeUploadFile, addFile } = fileSlice.actions;
+export const { setCurrentDir, showUploader, addUploadFile, changeUploadFile, addFile, addDiskStack } = fileSlice.actions;
 
 export default fileSlice.reducer;

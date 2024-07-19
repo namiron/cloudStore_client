@@ -8,7 +8,7 @@ const Layout: React.FC = () => {
         <>
             <div className={stylesLayout.mainBox}>
                 <Outlet />
-                hello
+
             </div>
         </>
 
