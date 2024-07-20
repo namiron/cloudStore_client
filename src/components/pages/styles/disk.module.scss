@@ -14,6 +14,7 @@ $color: #566885;
 .disk {
     @include adaptive-value('padding-top', 50, 20, 1920);
     @include adaptive-value('padding-bottom', 50, 20, 1920);
+    width: 100%;
 
 }
 
@@ -83,4 +84,19 @@ $color: #566885;
 
     color: $color;
     font-size: 30px;
+}
+.dropContainer {
+    width: 100%;
+    padding: 40px;
+}
+
+.dragDrop {
+    width: 100%;
+    height: 100vh;
+    color: $color;
+    text-transform: uppercase;
+    margin: 0 auto;
+    border: 2px $color dashed;
+    @include adaptive-font(40, 25, 1920);
+    @extend %displayCenter;
 }

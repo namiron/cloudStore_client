@@ -11,6 +11,7 @@ import { uploadFile } from '../../redux/API/filesUpload'
 const Disk: React.FC = () => {
     //-------------------------------
     const [visible, setVisible] = React.useState<boolean>(false)
+    const [dragEnter, setDragEnter] = React.useState<boolean>(false)
     const dispatch = useAppDispatch()
     //-----------------------------------------------------
     const currentDir = useAppSelector((state) => state.files.currentDir);
@@ -38,10 +39,46 @@ const Disk: React.FC = () => {
             });
         }
     };
+
+    //---------------------DragFunctions
+    const dragEnterHandler = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault(),
+            event.stopPropagation(),
+            setDragEnter(true)
+    }
+    const dragLeaveHandler = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault(),
+            event.stopPropagation(),
+            setDragEnter(false)
+    }
+    const dragOverHandler = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault(),
+            event.stopPropagation(),
+            setDragEnter(true)
+    }
+
+
+    const dropHandler = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault()
+        event.stopPropagation()
+        let files = [...event.dataTransfer.files]
+        if (files) {
+            const filesArray = Array.from(files);
+            filesArray.forEach(file => {
+                dispatch(uploadFile({ file, dirId: currentDir }));
+            });
+        }
+        setDragEnter(false)
+
+    }
+    //---------------------DragFunctions
+
+
     //-------------------------------
 
     return (
-        <div className={stylesDisk.disk}>
+        !dragEnter ?
+            <div className={stylesDisk.disk} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler} >
             <div className={stylesDisk.diskContainer}>
                 <div className={stylesDisk.buttonsDisk}>
                     <button className={stylesDisk.diskBack} onClick={backDir} >
@@ -68,6 +105,13 @@ const Disk: React.FC = () => {
                 </div>
             </div>
         </div>
+            :
+            <div className={stylesDisk.dropContainer} onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>
+                <div className={stylesDisk.dragDrop}>
+                    drop your files here
+                </div>
+            </div>
+
     )
 }
 
