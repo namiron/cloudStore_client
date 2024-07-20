@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom'
 import styles from './app.module.scss'
 import Navbar from './components/navbar/Navbar'
 import { useAppSelector } from './components/hooks/hooks';
-import Content from './components/content/Content';
 import '../reset.scss'
+import Disk from './components/pages/Disk';
 
 const RegistrationPage = lazy(() => import('../src/components/registration/Registration'));
 const LayoutPage = lazy(() => import('../src/components/Layout/Layout'));
@@ -30,7 +30,7 @@ const App: React.FC = () => {
             </Route>
           </Routes>
           :
-          <Content />
+          <Disk />
       }
 
     </div>
