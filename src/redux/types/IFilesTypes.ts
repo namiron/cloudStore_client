@@ -13,6 +13,21 @@ export interface IFilesType {
     childs?: any[];
 }
 
+export interface IFileDownloadType {
+    file: {
+        _id: string;
+        name: string;
+        type: string;
+        size: number | string;
+        date: Date;
+        accessLink?: string | any;
+        path: string;
+        user?: IUserType | {};
+        parents?: string[];
+        childs?: any[];
+    }
+}
+
 export interface IParentId {
     dirId?: IFilesType | null;
 }
@@ -42,4 +57,8 @@ export interface IInitialState {
     uploadFiles: IUploadFile[],
     uploaderVisible: boolean,
     diskStack: string[]
+}
+
+export interface PathApi {
+    rejectValue: { message: string };
 }

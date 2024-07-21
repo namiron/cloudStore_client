@@ -19,7 +19,6 @@ const Disk: React.FC = () => {
         setVisible(!visible)
     };
     const diskStack = useAppSelector((state) => state.files.diskStack)
-    console.log('diskStack', diskStack);
 
     const backDir = () => {
         const newDiskStack = diskStack.slice(0, -1);

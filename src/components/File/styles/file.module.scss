@@ -1,19 +1,48 @@
 @import '../../common/variables.scss';
 //---------------------------------------
 
+//---------------------------------------------
+//-------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//-------------------------------------vars
+
+%btn {
+    padding: 5px 0px;
+    @include adaptive-value('padding-left', 10, 5, 1440);
+    @include adaptive-value('padding-right', 10, 5, 1440);
+    outline: 1px solid $color;
+    border-radius: 20px;
+    @extend %displayCenter;
+}
+
+//---------------------------------------------
 .fileWrapper {
     @include adaptive-value('padding-left', 50, 0, 1440);
     @include adaptive-value('padding-right', 110, 0, 1440);
     @include adaptive-value('padding-bottom', 10, 5, 1440);
     @extend %display;
+    flex-wrap: wrap;
     border-bottom: 1px solid #000;
-
     transition: scale 0.03s ease 0ms;
+.download {
+        display: none;
+    }
 
+                .delete {
+                    display: none;
+        
+                }
     &:hover {
         transition: scale 0.03s ease 0ms;
         transform: scale(1.02);
+.download {
+        display: block;
+    }
 
+        .delete {
+            display: block;
+        }
     }
 }
 
@@ -30,6 +59,7 @@
 .name {
     @include adaptive-value('padding-left', 20, 0, 1440);
     flex: 1 1 auto;
+    @extend %displayComplect;
 }
 
 .date {
@@ -37,3 +67,23 @@
 }
 
 .size {}
+.btnContainer {
+    @include adaptive-value('gap', 20, 5, 1440);
+    @include adaptive-value('margin-right', 20, 5, 1440);
+    @extend %display;
+}
+
+.download {
+    flex-shrink: 0;
+    max-width: 37px;
+    @extend %btn;
+    @extend %images;
+    width: fit-content;
+}
+
+.delete {
+    flex-shrink: 0;
+    @extend %btn;
+    @extend %images;
+    width: fit-content;
+}
