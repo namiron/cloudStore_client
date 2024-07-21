@@ -4,7 +4,7 @@ export interface IFilesProps {
     _id: string;
     name: string;
     type: string;
-    size: number | string;
+    size: number;
     date: Date;
     accessLink?: string | any;
     path: string;

@@ -10,7 +10,6 @@ import { reLogin } from '../../redux/reducers/UserSlice';
 const Navbar: React.FC = () => {
     //--------------------------------------------
     const isAuth = useAppSelector((state) => state.users.isAuth)
-    console.log('isAuth', isAuth);
     const dispatch = useAppDispatch()
     //--------------------------------------------
 

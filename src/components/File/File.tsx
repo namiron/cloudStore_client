@@ -4,11 +4,12 @@ import folder from '../../image/folder.svg'
 import fileSwg from '../../image/file.svg'
 import { IFilesListProps } from './types/IFileProps'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
-import { setCurrentDir, addDiskStack, deleteFile } from '../../redux/reducers/FileSlice'
+import { setCurrentDir, addDiskStack } from '../../redux/reducers/FileSlice'
 import downloadsvg from '../../icons/download.svg'
 import deletesvg from '../../icons/box.svg'
 import { downloadFile } from '../../redux/API/downloadFile'
 import { fileDelete } from '../../redux/API/filesDelete'
+import sizeFormat from '../untils/size/sizeFormat'
 
 
 
@@ -62,7 +63,7 @@ const File: React.FC<IFilesListProps> = ({ file }) => {
                 </div>
             </div>
             <p className={stilesFile.date}>{file.date ? new Date(file.date).toDateString().slice(0, 10) : ''}</p>
-            <p className={stilesFile.size}>{file.size}</p>
+            <p className={stilesFile.size}>{sizeFormat(file.size)}</p>
 
         </li>
     )
