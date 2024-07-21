@@ -44,6 +44,12 @@ const fileSlice = createSlice({
                     files: [...state.files, payload]
                 }
             }
+        },
+        deleteFile(state, { payload }) {
+            return {
+                ...state,
+                files: [...state.files.filter(file => file._id !== payload)]
+            } 
         }
     },
     extraReducers: (builder) => {
@@ -67,6 +73,6 @@ const fileSlice = createSlice({
     }
 });
 
-export const { setCurrentDir, showUploader, addUploadFile, changeUploadFile, addFile, addDiskStack } = fileSlice.actions;
+export const { setCurrentDir, showUploader, addUploadFile, changeUploadFile, addFile, addDiskStack, deleteFile } = fileSlice.actions;
 
 export default fileSlice.reducer;
