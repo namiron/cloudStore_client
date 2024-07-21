@@ -1,0 +1,44 @@
+@import '../../common/variables.scss';
+//-------------------------------------------
+
+//----------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//----------------------------------------vars
+
+.uploadFile {
+    background: $background;
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    color: $color;
+}
+
+.uploadFileHeader {
+    @extend %displayComplect;
+}
+
+.nameFile {}
+
+.remove {
+    width: fit-content;
+}
+
+.progressBar {
+    height: 16px;
+    border-radius: 8px;
+    background: $color;
+    display: flex;
+    margin: 3px 0px;
+}
+
+.line {
+    background: green;
+    border-radius: 8px;
+}
+
+.present {
+    color: $background;
+    left: 50%;
+    position: absolute;
+}

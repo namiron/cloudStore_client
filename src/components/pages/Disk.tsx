@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { addDiskStack, setCurrentDir } from '../../redux/reducers/FileSlice'
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { uploadFile } from '../../redux/API/filesUpload'
+import Upload from '../upload/Upload'
 
 const Disk: React.FC = () => {
     //-------------------------------
@@ -101,6 +102,7 @@ const Disk: React.FC = () => {
 
                     {visible && <Popup setVisible={setVisible} visible={visible} />}
                     <FileList />
+                        <Upload />
                 </div>
             </div>
         </div>

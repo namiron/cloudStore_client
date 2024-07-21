@@ -1,0 +1,43 @@
+@import '../../common/variables.scss';
+//-------------------------------------------
+
+//----------------------------------------vars
+$background: #E9E6E6;
+$color: #566885;
+//----------------------------------------vars
+
+.uploader {
+    width: 300px;
+    height: 300px;
+    background: $color;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.heading {
+    @extend %displayComplect;
+}
+
+.close {
+    width: fit-content;
+    padding: 0px 10px;
+    background: $background;
+    padding: 5px;
+}
+
+.uploaderContainer {}
+
+.loading {
+    @include adaptive-font(18, 16, 1920);
+
+}
+
+.content {}
+
+.active {
+    display: none;
+}
