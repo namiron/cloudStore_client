@@ -4,10 +4,11 @@ import folder from '../../image/folder.svg'
 import fileSwg from '../../image/file.svg'
 import { IFilesListProps } from './types/IFileProps'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
-import { setCurrentDir, addDiskStack } from '../../redux/reducers/FileSlice'
+import { setCurrentDir, addDiskStack, deleteFile } from '../../redux/reducers/FileSlice'
 import downloadsvg from '../../icons/download.svg'
 import deletesvg from '../../icons/box.svg'
 import { downloadFile } from '../../redux/API/downloadFile'
+import { fileDelete } from '../../redux/API/filesDelete'
 
 
 
@@ -33,6 +34,11 @@ const File: React.FC<IFilesListProps> = ({ file }) => {
         downloadFile(file);
     };
 
+    const deleteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation()
+        dispatch(fileDelete(file))
+    }
+
     //------------------------------
 
     return (
@@ -50,7 +56,7 @@ const File: React.FC<IFilesListProps> = ({ file }) => {
                         ''
                     }
 
-                    <button className={stilesFile.delete}>
+                    <button className={stilesFile.delete} onClick={(event) => deleteHandler(event)}>
                         <img src={deletesvg} alt="" />
                     </button>
                 </div>
