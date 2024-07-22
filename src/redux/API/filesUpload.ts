@@ -4,7 +4,8 @@ import { IFilesType, UploadFileArgs } from '../types/IFilesTypes';
 import { RootState } from '../store';
 import { addFile, addUploadFile, changeUploadFile, showUploader } from '../reducers/FileSlice';
 
-const baseUrl = import.meta.env.VITE_CLOUD_STORE_BASE_URL;
+const baseUrl = 'https://cloudstore-server-dtyu.onrender.com';
+console.log('upload', baseUrl);
 
 
 export const uploadFile = createAsyncThunk<IFilesType, UploadFileArgs, { state: RootState }>(

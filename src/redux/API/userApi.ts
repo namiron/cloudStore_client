@@ -1,6 +1,9 @@
 import { IGetDataAboutUserType, ILoginUserTypes, IRegistrationTypes } from '../types/IUserTypes';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-const baseURl = import.meta.env.VITE_CLOUD_STORE_BASE_URL
+
+const baseURl = 'https://cloudstore-server-dtyu.onrender.com'
+console.log('user', baseURl);
+
 
 export const userApi = createApi({
     reducerPath: 'registrationApi',

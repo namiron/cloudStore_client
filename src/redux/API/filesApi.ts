@@ -4,7 +4,8 @@ import { ICreateNewFile, IFilesType } from "../types/IFilesTypes";
 
 
 //------------------
-const baseUrl = import.meta.env.VITE_CLOUD_STORE_BASE_URL
+const baseUrl = 'https://cloudstore-server-dtyu.onrender.com'
+console.log('files', baseUrl);
 //------------------
 
 

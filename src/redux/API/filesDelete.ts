@@ -4,9 +4,9 @@ import { IFilesType } from '../types/IFilesTypes';
 import { RootState } from '../store';
 import { deleteFile } from '../reducers/FileSlice';
 
-const baseUrl = import.meta.env.VITE_CLOUD_STORE_BASE_URL;
+const baseUrl = 'https://cloudstore-server-dtyu.onrender.com';
 
-console.log(baseUrl);
+console.log('delete', baseUrl);
 
 export const fileDelete = createAsyncThunk<void, IFilesType, { state: RootState }>(
     'files/fileDelete',
