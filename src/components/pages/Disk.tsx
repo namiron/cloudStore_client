@@ -102,14 +102,14 @@ const Disk: React.FC = () => {
                                 <option value="type">type</option>
                                 <option value="date">date</option>
                             </select>
-                            <div className="visible">
-                                <button className="plate" onClick={() => dispatch(setView('plate'))}>
+                            <div className={stylesDisk.visible}>
+                                <button className={stylesDisk.plate} onClick={() => dispatch(setView('plate'))}>
                                     <img src={groupFour} alt="" />
                                 </button>
-                                <button className="nine" onClick={() => dispatch(setView('nine'))}>
+                                <button className={stylesDisk.nine} onClick={() => dispatch(setView('nine'))}>
                                     <img src={groupNine} alt="" />
                                 </button>
-                                <button className="list" onClick={() => dispatch(setView('list'))}>
+                                <button className={stylesDisk.list} onClick={() => dispatch(setView('list'))}>
                                     <img src={groupList} alt="" />
                                 </button>
                             </div>

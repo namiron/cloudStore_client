@@ -1,7 +1,7 @@
-import { SetStateAction } from 'react';
+
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ICreateNewFile, IFilesType, IParentId } from "../types/IFilesTypes";
-// import.meta.env.VITE_CLOUD_STORE_BASE_URL
+import { ICreateNewFile, IFilesType } from "../types/IFilesTypes";
+
 
 //------------------
 const baseUrl = import.meta.env.VITE_CLOUD_STORE_BASE_URL
@@ -66,11 +66,3 @@ export const filesApi = createApi({
 });
 
 
-//  alx@gmail.com
-// alx
-// lxa 
-// 12345
-
-
-// looo@gmail.com
-// 1234
