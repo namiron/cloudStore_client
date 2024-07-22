@@ -4,14 +4,20 @@ import arrowBag from '../../icons/arrow-bag.svg'
 import FileList from '../FileList/FileList'
 import Popup from '../PopUp/PopUp'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
-import { addDiskStack, setCurrentDir } from '../../redux/reducers/FileSlice'
+import { addDiskStack, setCurrentDir, setView } from '../../redux/reducers/FileSlice'
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { uploadFile } from '../../redux/API/filesUpload'
 import Upload from '../upload/Upload'
+import groupFour from './../../icons/group-four.svg'
+import groupNine from './../../icons/group-nine.svg'
+import groupList from './../../icons/list.svg'
+
+
 
 const Disk: React.FC = () => {
     //-------------------------------
     const [visible, setVisible] = React.useState<boolean>(false)
+    const [sort, setSort] = React.useState<string>('type')
     const [dragEnter, setDragEnter] = React.useState<boolean>(false)
     const dispatch = useAppDispatch()
     //-----------------------------------------------------
@@ -88,9 +94,25 @@ const Disk: React.FC = () => {
                     <div className={stylesDisk.upload}>
                         <label htmlFor="uploadFile" className={stylesDisk.uploadLabel}>
                             <IoCloudUploadOutline className={stylesDisk.uploadIcons} />
-                            <input multiple={true} onChange={(e) => uploadFiles(e)} type="file" id='uploadFile' className={stylesDisk.uploadInput} />
-
+                                <input multiple={true} onChange={(e) => uploadFiles(e)} type="file" id='uploadFile' className={stylesDisk.uploadInput} />
                         </label>
+                            <select value={sort}
+                                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSort(e.target.value)} className='diskSelect'>
+                                <option value="name">name</option>
+                                <option value="type">type</option>
+                                <option value="date">date</option>
+                            </select>
+                            <div className="visible">
+                                <button className="plate" onClick={() => dispatch(setView('plate'))}>
+                                    <img src={groupFour} alt="" />
+                                </button>
+                                <button className="nine" onClick={() => dispatch(setView('nine'))}>
+                                    <img src={groupNine} alt="" />
+                                </button>
+                                <button className="list" onClick={() => dispatch(setView('list'))}>
+                                    <img src={groupList} alt="" />
+                                </button>
+                            </div>
                     </div>
                 </div>
                 <div className={stylesDisk.diskFiles}>
@@ -101,7 +123,7 @@ const Disk: React.FC = () => {
                     </ul>
 
                     {visible && <Popup setVisible={setVisible} visible={visible} />}
-                    <FileList />
+                        <FileList sort={sort} />
                         <Upload />
                 </div>
             </div>

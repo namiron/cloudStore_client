@@ -4,7 +4,7 @@ export interface IFilesType {
     _id: string;
     name: string;
     type: string;
-    size: number | string;
+    size: number;
     date: Date;
     accessLink?: string | any;
     path: string;
@@ -57,6 +57,7 @@ export interface IInitialState {
     uploadFiles: IUploadFile[],
     uploaderVisible: boolean,
     diskStack: string[]
+    view: string,
 }
 
 export interface PathApi {
