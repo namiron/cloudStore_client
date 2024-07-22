@@ -1,3 +1,4 @@
+import { SetStateAction } from 'react';
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ICreateNewFile, IFilesType, IParentId } from "../types/IFilesTypes";
 // import.meta.env.VITE_CLOUD_STORE_BASE_URL
@@ -22,16 +23,32 @@ export const filesApi = createApi({
     }),
     tagTypes: ['Files'],
     endpoints: (build) => ({
-        getFilesList: build.query<IFilesType[], IParentId>({
-            query: ({ dirId }) => ({
-                url: `/api/files${dirId ? `?parent=` + dirId : ''}`
-            }),
+        getFilesList: build.query<IFilesType[], { dirId?: string; sort?: string }>({
+            query: ({ dirId, sort }) => {
+                let url = `api/files`;
+
+                const params = new URLSearchParams();
+
+                if (dirId) {
+                    params.append('parent', dirId);
+                }
+
+                if (sort) {
+                    params.append('sort', sort);
+                }
+
+                if (params.toString()) {
+                    url += `?${params.toString()}`;
+                }
+                console.log('Constructed URL:', url)
+
+                return { url };
+            },
             providesTags: (result) =>
                 result ?
                     [...result.map(({ _id }) => ({ type: 'Files', id: _id } as const)), { type: 'Files', id: 'LIST' }] :
                     [{ type: 'Files', id: 'LIST' }]
         }),
-
         createNewFile: build.mutation<IFilesType, ICreateNewFile>({
             query: ({ dirId, name }) => ({
                 url: `/api/files`,
@@ -43,7 +60,8 @@ export const filesApi = createApi({
                 }
             }),
             invalidatesTags: [{ type: 'Files', id: 'LIST' }]
-        })
+        }),
+
     })
 });
 

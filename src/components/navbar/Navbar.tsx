@@ -11,6 +11,11 @@ const Navbar: React.FC = () => {
     //--------------------------------------------
     const isAuth = useAppSelector((state) => state.users.isAuth)
     const dispatch = useAppDispatch()
+    const [searchName, setSearchName] = React.useState<string>('')
+
+    const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchName(e.target.value)
+    }
     //--------------------------------------------
 
     return (
@@ -28,6 +33,11 @@ const Navbar: React.FC = () => {
                     <li className={stylesNav.item}><NavLink to='/registration'>{REGISTRATION}</NavLink> </li>
                     </ul> :
                         <ul className={stylesNav.list}>
+                            <div className="search">
+                                <input type="text" className='searchInput' placeholder='search'
+                                    value={searchName}
+                                    onChange={(e) => searchHandler(e)} />
+                            </div>
                             <li className={stylesNav.item} onClick={() => dispatch(reLogin())}>{EXIT}</li>
                         </ul>
                 }

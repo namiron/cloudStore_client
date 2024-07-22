@@ -9,7 +9,8 @@ const initialState: IInitialState = {
     currentDir: null,
     uploadFiles: [],
     uploaderVisible: false,
-    diskStack: []
+    diskStack: [],
+    view: 'list'
 
 };
 
@@ -28,6 +29,9 @@ const fileSlice = createSlice({
         },
         addUploadFile(state, { payload }: PayloadAction<IUploadFile>) {
             state.uploadFiles.push(payload);
+        },
+        setView(state, { payload }) {
+            state.view = payload
         },
         changeUploadFile(state, { payload }: PayloadAction<IUploadFile>) {
             const index = state.uploadFiles.findIndex(file => file.id === payload.id);
@@ -73,6 +77,6 @@ const fileSlice = createSlice({
     }
 });
 
-export const { setCurrentDir, showUploader, addUploadFile, changeUploadFile, addFile, addDiskStack, deleteFile } = fileSlice.actions;
+export const { setCurrentDir, showUploader, addUploadFile, changeUploadFile, addFile, setView, addDiskStack, deleteFile } = fileSlice.actions;
 
 export default fileSlice.reducer;
