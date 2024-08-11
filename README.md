@@ -70,9 +70,9 @@ popup is used for this
 
 login registration authorization is currently implemented
 
-<img width="1168" alt="registration" src="https://github.com/user-attachments/assets/41e8fd59-1d65-4d78-8ace-755f2250263c">
+<img width="600 " alt="registration" src="https://github.com/user-attachments/assets/41e8fd59-1d65-4d78-8ace-755f2250263c">
 
-<img width="1172" alt="login" src="https://github.com/user-attachments/assets/361e1c15-4457-49cd-b275-a8c92cbc989e">
+<img width="600" alt="login" src="https://github.com/user-attachments/assets/361e1c15-4457-49cd-b275-a8c92cbc989e">
 
 ## At the moment the project is in development and requires improvements and testing
 
