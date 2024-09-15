@@ -1,4 +1,4 @@
-# Cloudv Store Front
+# Cloud Store Front
 
 I decided to create a cloud storage solution similar to Google Cloud.
 This application has been designed as a full stack application using M.E.R.N technology stack.
